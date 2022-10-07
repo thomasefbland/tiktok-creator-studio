@@ -1,0 +1,115 @@
+@media all and (min-width: 700px) {
+    .container {
+        padding: 4rem 2rem 8rem;
+
+        >h3 {
+            font-size: var(--fontSizeH3);
+            font-weight: 700;
+            font-family: var(--fontFamilyHeading);
+            margin: 2rem 0 4rem;
+            user-select: none;
+        }
+    }
+
+    .main_container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-right: 1rem;
+    }
+    
+    .sidebar_container {
+        flex: 0 0 24rem;
+        margin-right: 2.4rem;
+        align-self: stretch;
+    }
+
+    .sidebar_wrapper {
+        list-style: none;
+    }
+
+    .sidebar_option {
+        font-size: var(--fontSizeP3);
+        font-weight: 500;
+        font-family: var(--fontFamilyHeading);
+        line-height: 2.4rem;
+        margin-bottom: 1.2rem;
+        position: relative;
+        text-transform: capitalize;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+
+            a {
+                position: relative;
+                width: 100%;
+                user-select: none;
+            }
+        }
+
+        &:global(.active) ::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                left: -8px;
+                bottom: 0;
+                width: 2px;
+                height: 100%;
+                background-color: var(--BgColorTertiary);
+        }
+    }
+
+
+
+    .doc_container { 
+        flex: 0 1 1111px;
+        overflow: hidden;
+        padding: 50px;
+        border-radius: 8px;
+        box-shadow: 2px 4px 20px rgb(34 90 89 / 20%);
+
+        font-family: var(--fontFamilyHeading);
+        line-height: 1;
+
+        p {
+            font-family: var(--fontFamilyParagraph);
+            font-size: var(--fontSizeP3);
+            font-weight: 400;
+            margin-bottom: 1.6rem;
+            line-height: 1.25;
+        }
+
+        a {
+            color: var(--BgColorTertiary)
+        }
+
+        h1 {
+            font-size: var(--fontSizeH5);
+            font-weight: 700;
+            margin-bottom: 2.4rem;
+            margin-top: 3.8rem;
+        }
+        h2 {
+            font-size: var(--fontSizeH6);
+            margin-bottom: 1.6rem;
+        }
+
+        ol {
+            margin: 1.6rem 0;
+            padding-left: 4rem;
+
+            li {
+                list-style-type: disc;
+                font-family: var(--fontFamilyParagraph);
+                font-size: var(--fontSizeP3);
+                font-weight: 400;
+                line-height: 2.4rem;
+                margin-bottom: 1.6rem;
+            }
+        }
+    }
+
+// media 700 end
+}

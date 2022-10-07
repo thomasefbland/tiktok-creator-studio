@@ -1,0 +1,43 @@
+.global-button {
+    color: var(--colorSecondary);
+    background-color: var(--BgColorTertiary);
+    font-family: var(--fontFamilyParagraph);
+    font-size: var(--fontSizeP2);
+    font-weight: semibold;
+    padding: 13px 19px;
+    border-radius: 2px;
+  
+    cursor: pointer;
+    user-select: none;
+}
+
+.scroll-to-top-button {
+    background-color: var(--BgColorTertiary);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    position: fixed;
+    right: 3.5rem;
+    bottom: 3.5rem;
+    z-index: 99;
+    
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 750ms, transform 500ms;
+
+    &.true {
+        opacity: 1;
+        width: 60px;
+        height: 60px;
+
+        &:hover {
+            transform: scale(1.2);
+            
+        }
+    }
+}
