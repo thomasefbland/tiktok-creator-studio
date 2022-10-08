@@ -7,9 +7,9 @@ const Footer = () => {
       <Link href={"/"}>
         <a className="footer-logo">
           <Image
-            src="/tt4d_logo_darkmode-dc980949bb46d153359147614b2c42c5.svg"
-            width={222}
-            height={40}
+            src="/logo/logo_dark_mode.svg"
+            width={300}
+            height={60}
             layout={"fixed"}
             alt={"Creator Studio for TikTok Logo"}
           />

@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       }
       prettyTitle += " ";
     }
-    const resp = await fetch(`${HOST_BASE_URL}/${docId}.md`);
+    const resp = await fetch(`${HOST_BASE_URL}/legal/${docId}.md`);
     docText = await resp.text();
   }
 

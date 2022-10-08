@@ -2,9 +2,113 @@
 @import "variables";
 @import "components";
 
-a {
-  color: inherit;
-  text-decoration: none;
+main {
+  width: 100%;
+}
+
+header {
+  background-color: white;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  user-select: none;
+
+  .header-logo-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .header-logo {
+    position: relative;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .menu-button {
+    font-family: var(--fontFamilyParagraph);
+    font-size: 1.5rem;
+    margin: 0 1.5rem;
+
+    cursor: pointer;
+
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: transparent;
+    transition: 500ms;
+
+    &:hover {
+      text-decoration-color: var(--BgColorTertiary);
+    }
+
+    .active {
+      text-decoration-color: var(--BgColorTertiary);
+    }
+  }
+
+  .create-button {
+    padding: 1rem;
+    border-radius: 2px;
+    background-color: var(--BgColorQuaternary);
+    width: 11rem;
+    height: 4rem;
+    margin: 0 1.2rem;
+    cursor: pointer;
+
+    overflow: hidden;
+    position: relative;
+
+    @keyframes createButtonGrowAnimation {
+      40% {
+        transform: scale(1.1);
+        filter: opacity(0.85);
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      top: -20px;
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0px 0px 10px 2px #fff;
+      width: 5px;
+      height: 80px;
+      filter: blur(5px);
+      transform: translateX(-100px) skewX(15deg);
+    }
+
+    &:hover {
+      animation: createButtonGrowAnimation 850ms ease-in-out;
+
+      &::before {
+        transform: translate(100px) skewX(15deg);
+        transition: 700ms;
+      }
+    }
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    > svg {
+      pointer-events: none;
+      display: block;
+      width: 28px;
+      height: auto;
+      fill: white;
+    }
+    span {
+      color: white;
+      font-family: var(--fontFamilyParagraph);
+      font-size: 1.5rem;
+    }
+  }
 }
 
 footer {
@@ -14,112 +118,18 @@ footer {
   overflow: hidden;
 }
 
-@media all and (min-width: 700px) {
-  main {
-    width: 100%;
-  }
+@media all and (min-width: 700px) and (max-width: 999px) {
 
   header {
-    background-color: white;
     height: 7rem;
-    width: 100%;
     padding: 0 4rem;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    user-select: none;
-
-    > a {
-      display: flex;
-      align-items: center;
+    .header-logo {
+      height: 50px;
+      width: 280px;
     }
   }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 
-    .menu-button {
-      font-family: var(--fontFamilyParagraph);
-      font-size: 1.5rem;
-      margin: 0 1.5rem;
-
-      cursor: pointer;
-
-      text-decoration: underline;
-      text-underline-offset: 5px;
-      text-decoration-color: transparent;
-      transition: 500ms;
-
-      &:hover {
-        text-decoration-color: var(--BgColorTertiary);
-      }
-
-      .active {
-        text-decoration-color: var(--BgColorTertiary);
-      }
-    }
-
-    .create-button {
-      padding: 1rem;
-      border-radius: 2px;
-      background-color: var(--BgColorQuaternary);
-      width: 11rem;
-      height: 4rem;
-      margin: 0 1.2rem;
-      cursor: pointer;
-
-      overflow: hidden;
-      position: relative;
-
-      @keyframes createButtonGrowAnimation {
-        40% {
-          transform: scale(1.1);
-          filter: opacity(0.85);
-        }
-      }
-
-      &::before {
-        content: "";
-        display: block;
-        top: -20px;
-        position: absolute;
-        background: rgba(255, 255, 255, 0.5);
-        box-shadow: 0px 0px 10px 2px #fff;
-        width: 5px;
-        height: 80px;
-        filter: blur(5px);
-        transform: translateX(-100px) skewX(15deg);
-      }
-
-      &:hover {
-        animation: createButtonGrowAnimation 850ms ease-in-out;
-
-        &::before {
-          transform: translate(100px) skewX(15deg);
-          transition: 700ms;
-        }
-      }
-
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      > svg {
-        pointer-events: none;
-        display: block;
-        width: 28px;
-        height: auto;
-        fill: white;
-      }
-      span {
-        color: white;
-        font-family: var(--fontFamilyParagraph);
-        font-size: 1.5rem;
-      }
-    }
-  }
 
   footer {
     height: 25rem;
@@ -199,6 +209,16 @@ footer {
 }
 
 @media all and (min-width: 1000px) {
+
+  header {
+    padding: 0 4rem;
+  }
+
+  .header-logo {
+    height: 60px;
+    width: 300px;
+  }
+
   footer {
     padding: 4rem 10rem;
   }
