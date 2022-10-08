@@ -34,7 +34,7 @@ Creator Studio for TikTok is committed to the security and safety of your inform
 
 # Our Cookie Policy
 
-Once you have agreed to our website Privacy Policy, and begun to use our Services, you have also agreed to our [Cookie Policy](https://tiktok-creator-studio.vercel.app/legal/cookie-policy).
+Once you have agreed to our website Privacy Policy, and begun to use our Services, you have also agreed to our [Cookie Policy](https://tiktok-creator-studio.vercel.app/legal/cookies-policy).
 The data we collect using cookies is strictly for the functionality of our site. Please note our cookies do not allow us to take control or modify your device in any way. If you want to disable cookies, you may do so by accessing the settings of your browser. Do note that doing so will cause our Service to no longer function.
 
 # TikTok Inc.
@@ -43,7 +43,7 @@ It may be useful to understand that any and all content uploaded with our Servic
 
 # Removal Of Your Personal Data
 
-You may disconnect your TikTok Inc. Official Account and *Delete* any data we collected in association with said account, at *ANY* time. The option is available in the menu on our [Site](https://tiktok-creator-studio.vercel.app);
+You may disconnect your TikTok Inc. Official Account and **Delete** any data we collected in association with said account, at **ANY** time. The option is available in the menu on our [Site](https://tiktok-creator-studio.vercel.app);
 
 # Contact Us.
 
