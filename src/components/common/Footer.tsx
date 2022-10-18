@@ -6,13 +6,7 @@ const Footer = () => {
     <footer>
       <Link href={"/"}>
         <a className="footer-logo">
-          <Image
-            src="/logo/logo_dark_mode.svg"
-            width={300}
-            height={60}
-            layout={"fixed"}
-            alt={"Creator Studio for TikTok Logo"}
-          />
+          <Image src="/logo/logo2_dark_mode.svg" width={300} height={60} layout={"fixed"} alt={"Creator Studio Logo"} />
         </a>
       </Link>
       <div className="footer-links">

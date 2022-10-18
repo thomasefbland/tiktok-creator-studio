@@ -1,11 +1,6 @@
 import styles from "../../styles/Legal.module.scss";
 
-import {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import { HOST_BASE_URL } from "../../../lib/utils/constants";
@@ -14,11 +9,7 @@ import MarkdownIt from "markdown-it";
 import Head from "next/head";
 const md = new MarkdownIt({ html: true });
 
-const paths = [
-  { params: { docId: "terms-of-service" } },
-  { params: { docId: "privacy-policy" } },
-  { params: { docId: "cookies-policy" } },
-];
+const paths = [{ params: { docId: "terms-of-service" } }, { params: { docId: "privacy-policy" } }, { params: { docId: "cookies-policy" } }];
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -57,12 +48,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const Legal: NextPage = ({
-  docText,
-  docId,
-  prettyTitle,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const title = `${prettyTitle} / Creator Studio for TikTok`;
+const Legal: NextPage = ({ docText, docId, prettyTitle }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const title = `${prettyTitle} / Creator Studio`;
 
   return (
     <>
@@ -76,14 +63,7 @@ const Legal: NextPage = ({
             <ul className={styles.sidebar_wrapper}>
               {paths.map((path) => {
                 return (
-                  <li
-                    key={path.params.docId}
-                    className={
-                      path.params.docId === docId
-                        ? styles.sidebar_option + " active"
-                        : styles.sidebar_option
-                    }
-                  >
+                  <li key={path.params.docId} className={path.params.docId === docId ? styles.sidebar_option + " active" : styles.sidebar_option}>
                     <p>
                       <Link href={`/legal/${path.params.docId}`}>
                         <a>{path.params.docId.replaceAll("-", " ")}</a>
@@ -94,10 +74,7 @@ const Legal: NextPage = ({
               })}
             </ul>
           </aside>
-          <article
-            className={styles.doc_container}
-            dangerouslySetInnerHTML={{ __html: md.render(docText) }}
-          ></article>
+          <article className={styles.doc_container} dangerouslySetInnerHTML={{ __html: md.render(docText) }}></article>
         </div>
       </div>
     </>
