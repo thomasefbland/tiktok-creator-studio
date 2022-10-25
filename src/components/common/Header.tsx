@@ -1,5 +1,22 @@
+import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+
+const UserCard = () => {
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <>
+        <div className="menu-button">We Are Signed in!</div>
+      </>
+    );
+  }
+  return (
+    <div className="menu-button" onClick={() => signIn()}>
+      Log in with TikTok
+    </div>
+  );
+};
 
 const Header = () => {
   return (
@@ -20,7 +37,7 @@ const Header = () => {
           </svg>
           <span>Create</span>
         </button>
-        <div className="menu-button">Log in with TikTok</div>
+        <UserCard />
       </nav>
     </header>
   );
