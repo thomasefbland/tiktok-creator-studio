@@ -7,6 +7,7 @@ export const authOptions: NextAuthOptions = {
       id: "tiktok",
       name: "TikTok",
       type: "oauth",
+      version: "2.0",
       clientId: process.env.TIKTOK_CLIENT_KEY,
       clientSecret: process.env.TIKTOK_CLIENT_SECRET,
       authorization: {
