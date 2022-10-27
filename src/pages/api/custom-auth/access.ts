@@ -1,7 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { serialize } from "cookie";
+import { cors, runMiddleware } from "../../../../lib/utils/cors";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  await runMiddleware(req, res, cors);
   const { code, state } = req.query;
   const { csrfState } = req.cookies;
 

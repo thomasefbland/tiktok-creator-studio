@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { serialize } from "cookie";
+import { cors, runMiddleware } from "../../../../lib/utils/cors";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  await runMiddleware(req, res, cors);
+
   const csrfState = Math.random().toString(36).substring(2);
   res.setHeader("Set-Cookie", serialize("csrfState", csrfState, { maxAge: 60000 }));
 
