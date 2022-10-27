@@ -1,3 +1,4 @@
+import { serialize } from "cookie";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,20 @@ import { HOST_BASE_URL } from "../../../lib/utils/constants";
 
 const UserCard = () => {
   const fetchData = async () => {
-    const resp = await fetch(`${HOST_BASE_URL}/api/custom-auth/auth`);
+    // const csrfState = Math.random().toString(36).substring(2);
+    // const cookieValue = serialize("csrfState", csrfState, { maxAge: 60000 });
+
+    // let url = "https://www.tiktok.com/auth/authorize/";
+    // url += `?client_key=${process.env.TIKTOK_CLIENT_KEY}`;
+    // url += "&scope=user.info.basic,video.list,video.upload";
+    // url += "&response_type=code";
+    // url += "&redirect_uri=https://creatorstudio.vercel.app/api/custom-auth/access";
+    // url += "&state=" + csrfState;
+
+    // const resp = await fetch(url, { headers: { "Set-Cookie": cookieValue, "Access-Control-Allow-Origin": "*" } });
+    // console.log(resp);
+
+    const resp = await fetch(`${HOST_BASE_URL}/api/custom-auth/authorize`, { headers: { "Access-Control-Allow-Origin": "*" } });
     console.log(resp);
   };
 
@@ -18,8 +32,8 @@ const UserCard = () => {
     );
   }
   return (
-    // <div className="menu-button" onClick={() => signIn()}>
-    <div className="menu-button" onClick={() => fetchData()}>
+    <div className="menu-button" onClick={() => signIn()}>
+      {/* // <div className="menu-button" onClick={() => fetchData()}> */}
       Log in with TikTok
     </div>
   );
