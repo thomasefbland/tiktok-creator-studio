@@ -1,8 +1,14 @@
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { HOST_BASE_URL } from "../../../lib/utils/constants";
 
 const UserCard = () => {
+  const fetchData = async () => {
+    const resp = await fetch(`${HOST_BASE_URL}/api/custom-auth/auth`);
+    console.log(resp);
+  };
+
   const { data: session } = useSession();
   if (session) {
     return (
@@ -12,7 +18,8 @@ const UserCard = () => {
     );
   }
   return (
-    <div className="menu-button" onClick={() => signIn()}>
+    // <div className="menu-button" onClick={() => signIn()}>
+    <div className="menu-button" onClick={() => fetchData()}>
       Log in with TikTok
     </div>
   );
