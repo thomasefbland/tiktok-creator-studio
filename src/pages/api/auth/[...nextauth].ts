@@ -17,12 +17,19 @@ export const authOptions: NextAuthOptions = {
           client_key: process.env.TIKTOK_CLIENT_KEY,
         },
       },
-      token: "https://open-api.tiktok.com/oauth/access_token/",
-      userinfo: "https://open.tiktokapis.com/v2/user/info/",
+      token: {
+        url: "https://open-api.tiktok.com/oauth/access_token/",
+        params: {
+          client_key: process.env.TIKTOK_CLIENT_KEY,
+          client_secret: process.env.TIKTOK_CLIENT_SECRET,
+          grant_type: "authorization_code",
+        },
+      },
+      userinfo: "https://open-api.tiktok.com/user/info/",
       profile(profile) {
         return {
           profile: profile,
-          id: profile.id,
+          id: profile.open_id,
         };
       },
       checks: ["state"],
